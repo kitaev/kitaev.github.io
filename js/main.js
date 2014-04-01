@@ -6,7 +6,7 @@ var adjustDate = function(date) {
     var adjusted = new Date(date.getTime());
     var isLeap = isLeapYear(adjusted.getFullYear());
     var inc = adjusted.getDay() > 3 ? 1 : -1;
-    var target = adjusted.getHours() == 23 ? 5 : 6;
+    var target = adjusted.getHours() == 23 ? 6 : 6;
     while(adjusted.getDay() != target) {
         do {
             adjusted.setFullYear(adjusted.getFullYear() + inc);
@@ -16,7 +16,11 @@ var adjustDate = function(date) {
 }
 
 var updateTimeAndDate = function(now, adjusted) {
-    document.getElementById("date").innerHTML = adjusted.customFormat("#DDDD#, #MMMM# #DD# " + now.getFullYear());
+    var date = adjusted.customFormat("#DDDD#");
+    if (adjusted.getDay() == 6) {
+        date = "<span class=\"text-danger\">" + date + "</span>";
+    }
+    document.getElementById("date").innerHTML = date + adjusted.customFormat(", #MMMM# #DD# " + now.getFullYear());
     document.getElementById("time").innerHTML = adjusted.customFormat("#hhh#:#mm#:#ss#");
 }
 
