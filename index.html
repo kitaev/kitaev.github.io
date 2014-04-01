@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple&nbsp;Calendar</title>
+
+    <!-- Bootstrap -->
+    <!-- TODO: make URL protocol-agnostic -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Local JavaScript -->
+    <script src="js/date.js" ></script>
+    <script src="js/main.js" ></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header row">
+            <div class="col-md-10 h3 text-muted">Simple&nbsp;Calendar</div>
+            <div class="h3 col-md-2 text-right text-muted small">v0.1</div>
+        </div>
+
+        <div id="jumbo" class="jumbotron">
+            <div id="dateandtime" style="display:block;">
+                <h1><span id="date"></span></h1>
+                <h2><span id="time"></span></h2>
+                <h3><small>click for more</small></h3>
+            </div>
+            <div id="calendar" style="display:none;">
+                <div class="text-center h3" id="month-header"></div>
+                <table class="table table-bordered table-hover">
+                    <thead><tr>
+                        <th class="text-center">Mon</th>
+                        <th class="text-center">Tue</th>
+                        <th class="text-center">Wed</th>
+                        <th class="text-center">Thu</th>
+                        <th class="text-center">Fri</th>
+                        <th class="text-center text-danger">Sat</th>
+                        <th class="text-center text-danger">Sun</th>
+                    </tr></thead>
+                    <tbody id="month-table"></tbody>
+                </table>
+                <h3><small>click for less</small></h3>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; TMate Software 2014</p>
+        </div>
+    </div>
+</body>
+</html>
