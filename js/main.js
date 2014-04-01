@@ -21,7 +21,11 @@ var updateTimeAndDate = function(now, adjusted) {
         date = "<span class=\"text-danger\">" + date + "</span>";
     }
     document.getElementById("date").innerHTML = date + adjusted.customFormat(", #MMMM# #DD# " + now.getFullYear());
-    document.getElementById("time").innerHTML = adjusted.customFormat("#hhh#:#mm#:#ss#");
+    var hour =adjusted.customFormat("#hhh#");
+    if (hour === "0") {
+        hour = "00";
+    }
+    document.getElementById("time").innerHTML = hour + adjusted.customFormat(":#mm#:#ss#");
 }
 
 var generateWeekRow = function(monday, currentMonth, currentDate) {
